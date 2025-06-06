@@ -18,7 +18,7 @@ I am still in the early stages of bootstrapping architectural components such as
 
 All nodes are running `ubuntu server 24.04 LTS`.
 
-I used [k3s-ansible](https://github.com/k3s/k3s-ansible) to provision the cluster.
+I used [k3s-ansible](https://github.com/k3s-io/k3s-ansible) to provision the cluster.
 
 All default options were used as I will likely be using `external-dns` and `Cilium` later on.
 
