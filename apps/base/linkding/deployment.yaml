@@ -4,30 +4,51 @@ metadata:
   name: linkding
 spec:
   replicas: 1
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+
   selector:
     matchLabels:
       app: linkding
+
   template:
     metadata:
       labels:
         app: linkding
+
     spec:
       securityContext:
         runAsUser: 33
         runAsGroup: 33
         fsGroup: 33
+
       containers:
         - name: linkding
           image: sissbruecker/linkding:1.39.1
+
           securityContext:
             allowPrivilegeEscalation: false
+
+          envFrom:
+            - configMapRef:
+                name: linkding-configmap
+            - secretRef:
+                name: linkding-app-secrets
+
           ports:
             - containerPort: 3003
               protocol: TCP
+
           volumeMounts:
             - name: linkding-data
               mountPath: /etc/linkding/data
+
       restartPolicy: Always
+
       volumes:
         - name: linkding-data
           persistentVolumeClaim:
