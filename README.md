@@ -37,7 +37,7 @@ Here is a list of things I want to achieve:
 ### Checklist
 
 - [] Complete devpod integration
-- [] Self-hosted storage
+- [x] Self-hosted storage
 - [] Deploy self-hosted apps
 - [] Azure secrets
 - [] Expose apps to internet
@@ -56,6 +56,8 @@ I will need to implement resource constraints so they do not impact the rest of 
 #### Self-Hosted Storage
 
 Obtain a Synology NAS so my homelab can use persistent storage.
+
+> COMPLETED
 
 #### Deploy Self-Hosted Apps
 
