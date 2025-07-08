@@ -1,0 +1,18 @@
+alertmanager:
+  enabled: false
+
+grafana:
+  sidecar:
+    dashboards:
+      enabled: true
+      label: grafana_dashboard
+      labelValues: "1"
+
+prometheus:
+  prometheusSpec:
+
+    # Discover all PodMonitors, Probes, PrometheusRules and ServiceMonitors
+    podMonitorSelectorNilUsesHelmValues: false
+    probeSelectorNilUsesHelmValues: false
+    ruleSelectorNilUsesHelmValues: false
+    serviceMonitorSelectorNilUsesHelmValues: false
