@@ -5,6 +5,9 @@ metadata:
 spec:
   instances: 1
 
+  monitoring:
+    enablePodMonitor: true
+
   bootstrap:
     initdb:
       database: linkding
