@@ -1,0 +1,105 @@
+mode: daemonset
+
+image:
+  repository: "ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-k8s"
+
+presets:
+  logsCollection:
+    enabled: true
+    includeCollectorLogs: true
+
+  kubernetesAttributes:
+    enabled: true
+
+  kubeletMetrics:
+    enabled: true
+
+  hostMetrics:
+    enabled: true
+
+config:
+
+  exporters:
+    debug:
+      verbosity: basic # [ basic, normal, detailed ]
+
+    otlphttp/loki:
+      endpoint: http://loki:3100/otlp
+      tls:
+        insecure: true
+
+    otlp/tempo:
+      endpoint: http://tempo:4317
+      tls:
+        insecure: true
+
+  receivers:
+
+    # Disable unused receivers
+    jaeger: null
+    zipkin: null
+
+  service:
+    pipelines:
+
+      logs:
+        exporters:
+          - debug
+          - otlphttp/loki
+        processors:
+          - memory_limiter
+          - batch
+        receivers:
+          - otlp
+
+      metrics:
+        exporters:
+          - debug
+        processors:
+          - memory_limiter
+          - batch
+        receivers:
+          - otlp
+          - prometheus
+      
+      traces:
+        exporters:
+          - debug
+          - otlp/tempo
+        processors:
+          - memory_limiter
+          - batch
+        receivers:
+          - otlp
+
+ports:
+
+  # Disable unused receiver ports
+  jaeger-compact:
+    enabled: false
+  jaeger-thrift:
+    enabled: false
+  jaeger-grpc:
+    enabled: false
+  zipkin:
+    enabled: false
+
+  # Enable metrics port
+  metrics:
+    enabled: true
+    containerPort: 8888
+    servicePort: 8888
+    protocol: TCP
+
+
+# Enable pod and service monitors
+podMonitor:
+  enabled: true
+  metricsEndpoints:
+    - port: metrics
+
+serviceMonitor:
+  enabled: true
+  metricsEndpoints:
+    - port: metrics
+
