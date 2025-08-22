@@ -39,7 +39,7 @@ Here is a list of things I want to achieve:
 - [] Complete devpod integration
 - [x] Self-hosted storage
 - [] Deploy self-hosted apps
-- [] Azure secrets
+- [x] Azure secrets
 - [] Expose apps to internet
 - [] Container registry
 - [] CNI
@@ -67,7 +67,9 @@ Such as [commafeed](https://www.commafeed.com/#/welcome), [linkding](https://git
 
 I want to use [external-secrets](https://external-secrets.io/latest/) to connect to an `Azure Key Vault`.
 
-This will allow me to
+This will allow me to securely and privately store my app and service credentials.
+
+> COMPLETED
 
 #### Expose Apps to Internet
 
