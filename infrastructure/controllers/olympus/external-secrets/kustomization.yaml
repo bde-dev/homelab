@@ -5,4 +5,3 @@ resources:
   - release.yaml
   - deployment-crds.yaml
   - namespace.yaml
-  - cluster-secret-store.yaml
