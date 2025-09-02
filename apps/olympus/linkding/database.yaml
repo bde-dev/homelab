@@ -13,7 +13,7 @@ spec:
       database: linkding
       owner: linkding
       secret:
-        name: linkding-db-secrets
+        name: linkding-db-creds
 
   storage:
     size: 1Gi
