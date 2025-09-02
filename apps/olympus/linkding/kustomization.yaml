@@ -8,3 +8,4 @@ resources:
   - deployment.yaml
   - configmap.yaml
   - database.yaml
+  - secrets.yaml
