@@ -1,5 +1,5 @@
 apiVersion: cilium.io/v2
-kind: CiliumLoadBalancerPool
+kind: CiliumLoadBalancerIPPool
 metadata:
   name: apps-pool
 spec:
