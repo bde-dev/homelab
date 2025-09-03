@@ -9,4 +9,4 @@ spec:
   type: ClusterIP
   ports:
     - name: linkding
-      port: 9090
+      port: 3003
