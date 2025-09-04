@@ -40,9 +40,9 @@ Here is a list of things I want to achieve:
 - [x] Self-hosted storage
 - [] Deploy self-hosted apps
 - [x] Azure secrets
-- [] Expose apps to internet
+- [x] Expose apps to internet
 - [] Container registry
-- [] CNI
+- [x] CNI
 - [] Observability
 
 ### Milestones
@@ -77,6 +77,8 @@ Ensure use of industry standard best practices to secure my homelab cluster.
 
 This will also allow me to access my self-hosted apps over the internet.
 
+> COMPLETED
+
 #### Container Registry
 
 Self-hosting a container registry will allow me to create container images for my `dotnet` apps.
@@ -86,6 +88,8 @@ Self-hosting a container registry will allow me to create container images for m
 I want to use `Cilium` for my `CNI`.
 
 Research indicates it is a robust widely-used tool.
+
+> COMPLETED
 
 #### Observability
 
