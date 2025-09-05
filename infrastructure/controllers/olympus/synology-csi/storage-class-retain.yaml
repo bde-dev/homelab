@@ -3,7 +3,6 @@ kind: StorageClass
 metadata:
   name: synology-iscsi-retain
   annotations:
-    storageclass.kubernetes.io/is-default-class: "true"
 provisioner: csi.san.synology.com
 parameters:
   dsm: "192.168.0.100"
