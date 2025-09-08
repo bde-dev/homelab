@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: wallabag-configmap
+data:
+  POSTGRES_USER: wallabag
+  POSTGRES_PASSWORD: wallapass
+  SYMFONY__ENV__DATABASE_DRIVER: pdo_pgsql
+  SYMFONY__ENV__DATABASE_HOST: wallabag-db
+  SYMFONY__ENV__DATABASE_PORT: "5432"
+  SYMFONY__ENV__DATABASE_NAME: wallabag
+  SYMFONY__ENV__DATABASE_USER: wallabag
+  SYMFONY__ENV__DATABASE_PASSWORD: wallapass
+  SYMFONY__ENV__DOMAIN_NAME: "https://wallabag.bde-dev.net"
+  SYMFONY__ENV__APP_ENV: dev

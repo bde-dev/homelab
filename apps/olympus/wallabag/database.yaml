@@ -1,0 +1,30 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: wallabag-db-prod-cnpg-v1
+spec:
+  instances: 1
+
+  monitoring:
+    enablePodMonitor: true
+
+  bootstrap:
+    initdb:
+      database: wallabag
+      owner: wallabag
+      secret:
+        name: wallabag-db-creds
+
+  storage:
+    size: 1Gi
+    storageClass: synology-iscsi-retain
+
+  managed:
+    services:
+      additional:
+        - selectorType: rw
+          serviceTemplate:
+            metadata:
+              name: wallabag-db
+            spec:
+              type: ClusterIP
