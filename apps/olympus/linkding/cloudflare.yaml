@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: cloudflared
+        network-policy-type: cloudflared
     spec:
       containers:
         - image: cloudflare/cloudflared:latest

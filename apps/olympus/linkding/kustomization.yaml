@@ -10,3 +10,4 @@ resources:
   - database.yaml
   - secrets.yaml
   - cloudflare.yaml
+  - networkpolicy.yaml

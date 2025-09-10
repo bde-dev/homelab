@@ -8,6 +8,11 @@ spec:
   monitoring:
     enablePodMonitor: true
 
+  inheritedMetadata:
+    labels:
+      app: linkding-database
+      network-policy-type: database
+
   bootstrap:
     initdb:
       database: linkding
