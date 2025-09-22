@@ -4,7 +4,7 @@ metadata:
   name: linkding-db-scheduled-backup
 spec:
   cluster:
-    name: linkding-db-prod-cnpg-v1
+    name: linkding-db-prod-cnpg-v2
   schedule: "0 0 0 * * *"
   backupOwnerReference: self
   method: plugin

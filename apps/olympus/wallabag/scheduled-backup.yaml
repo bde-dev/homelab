@@ -4,7 +4,7 @@ metadata:
   name: wallabag-db-scheduled-backup
 spec:
   cluster:
-    name: wallabag-db-prod-cnpg-v1
+    name: wallabag-db-prod-cnpg-v2
   schedule: "0 0 0 * * *"
   backupOwnerReference: self
   method: plugin
