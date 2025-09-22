@@ -1,23 +1,38 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: wallabag-db-prod-cnpg-v1
+  name: wallabag-db-prod-cnpg-v2
 spec:
   instances: 1
 
   monitoring:
     enablePodMonitor: true
 
+  inheritedMetadata:
+    labels:
+      app: wallabag-database
+      network-policy-type: database
+
+  plugins:
+    - name: barman-cloud.cloudnative-pg.io
+      isWALArchiver: true
+      parameters:
+        barmanObjectName: wallabag-db-barman-store
+
+  externalClusters:
+    - name: clusterBackup
+      plugin:
+        name: barman-cloud.cloudnative-pg.io
+        parameters:
+          barmanObjectName: wallabag-db-barman-store
+          serverName: wallabag-db-prod-cnpg-v1
+
   bootstrap:
-    initdb:
-      database: wallabag
-      owner: wallabag
-      secret:
-        name: wallabag-db-creds
+    recovery:
+      source: clusterBackup
 
   storage:
     size: 1Gi
-    storageClass: synology-iscsi-retain
 
   managed:
     services:

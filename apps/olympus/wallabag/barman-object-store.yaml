@@ -1,0 +1,20 @@
+apiVersion: barmancloud.cnpg.io/v1
+kind: ObjectStore
+metadata:
+  name: wallabag-db-barman-store
+  namespace: wallabag
+spec:
+  configuration:
+    destinationPath: "https://homelabstoragebdedev.blob.core.windows.net/wallabag"
+    azureCredentials:
+      storageAccount:
+        name: wallabag-db-barman-secrets
+        key: AZURE_STORAGE_ACCOUNT
+      storageSasToken:
+        name: wallabag-db-barman-secrets
+        key: AZURE_STORAGE_SAS_TOKEN
+    data:
+      compression: gzip
+    wal:
+      compression: gzip
+  retentionPolicy: 14d

@@ -4,8 +4,10 @@ namespace: wallabag
 resources:
   - namespace.yaml
   - deployment.yaml
-  - networking.yaml
+  - service.yaml
   - secrets.yaml
   - database.yaml
   - configmap.yaml
   - cloudflare.yaml
+  - barman-object-store.yaml
+  - scheduled-backup.yaml
