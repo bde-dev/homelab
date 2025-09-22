@@ -1,7 +1,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: linkding-db-prod-cnpg-v1
+  name: linkding-db-prod-cnpg-v2
 spec:
   instances: 1
 
@@ -13,16 +13,27 @@ spec:
       app: linkding-database
       network-policy-type: database
 
+  plugins:
+    - name: barman-cloud.cloudnative-pg.io
+      isWALArchiver: true
+      parameters:
+        barmanObjectName: linkding-db-barman-store
+
+  externalClusters:
+    - name: clusterBackup
+      plugin:
+        name: barman-cloud.cloudnative-pg.io
+        parameters:
+          barmanObjectName: linkding-db-barman-store
+          serverName: linkding-db-prod-cnpg-v1
+
   bootstrap:
-    initdb:
-      database: linkding
-      owner: linkding
-      secret:
-        name: linkding-db-creds
+    recovery:
+      source: clusterBackup
 
   storage:
     size: 1Gi
-    storageClass: synology-iscsi-retain
+    storageClass: synology-iscsi
 
   managed:
     services:

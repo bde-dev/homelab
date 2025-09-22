@@ -11,3 +11,4 @@ resources:
   - secrets.yaml
   - cloudflare.yaml
   - networkpolicy.yaml
+  - barman-object-store.yaml

@@ -1,0 +1,20 @@
+apiVersion: barmancloud.cnpg.io/v1
+kind: ObjectStore
+metadata:
+  name: linkding-db-barman-store
+  namespace: linkding
+spec:
+  configuration:
+    destinationPath: "https://homelabstoragebdedev.blob.core.windows.net/linkding"
+    azureCredentials:
+      storageAccount:
+        name: linkding-db-barman-secrets
+        key: AZURE_STORAGE_ACCOUNT
+      storageSasToken:
+        name: linkding-db-barman-secrets
+        key: AZURE_STORAGE_SAS_TOKEN
+    data:
+      compression: gzip
+    wal:
+      compression: gzip
+  retentionPolicy: 14d

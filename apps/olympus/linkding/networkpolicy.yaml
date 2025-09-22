@@ -139,3 +139,14 @@ spec:
           rules:
             dns:
               - matchPattern: "*"
+
+    # Allows traffic out to the internet - used for backups to Azure Blob
+    - toEntities:
+        - world
+      toPorts:
+        - ports:
+            - port: "443"
+        - ports:
+            - port: "80"
+        - ports:
+            - port: "7844"
