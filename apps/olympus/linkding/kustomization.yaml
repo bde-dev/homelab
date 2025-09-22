@@ -12,3 +12,4 @@ resources:
   - cloudflare.yaml
   - networkpolicy.yaml
   - barman-object-store.yaml
+  - scheduled-backup.yaml
