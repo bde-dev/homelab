@@ -33,7 +33,6 @@ spec:
 
   storage:
     size: 1Gi
-    storageClass: synology-iscsi
 
   managed:
     services:
