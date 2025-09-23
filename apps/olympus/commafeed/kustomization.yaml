@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: commafeed
+resources:
+  - namespace.yaml
+  - service.yaml
+  - deployment.yaml
+  - configmap.yaml
+  - database.yaml
+  - secrets.yaml
+  - cloudflare.yaml
+  - networkpolicy.yaml
+  - barman-object-store.yaml
+  - scheduled-backup.yaml

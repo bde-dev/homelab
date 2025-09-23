@@ -1,0 +1,20 @@
+apiVersion: barmancloud.cnpg.io/v1
+kind: ObjectStore
+metadata:
+  name: commafeed-db-barman-store
+  namespace: commafeed
+spec:
+  configuration:
+    destinationPath: "https://homelabstoragebdedev.blob.core.windows.net/commafeed"
+    azureCredentials:
+      storageAccount:
+        name: commafeed-db-barman-secrets
+        key: AZURE_STORAGE_ACCOUNT
+      storageSasToken:
+        name: commafeed-db-barman-secrets
+        key: AZURE_STORAGE_SAS_TOKEN
+    data:
+      compression: gzip
+    wal:
+      compression: gzip
+  retentionPolicy: 14d
