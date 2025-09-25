@@ -1,0 +1,20 @@
+apiVersion: barmancloud.cnpg.io/v1
+kind: ObjectStore
+metadata:
+  name: mealie-db-barman-store
+  namespace: mealie
+spec:
+  configuration:
+    destinationPath: "https://homelabstoragebdedev.blob.core.windows.net/mealie"
+    azureCredentials:
+      storageAccount:
+        name: mealie-db-barman-secrets
+        key: AZURE_STORAGE_ACCOUNT
+      storageSasToken:
+        name: mealie-db-barman-secrets
+        key: AZURE_STORAGE_SAS_TOKEN
+    data:
+      compression: gzip
+    wal:
+      compression: gzip
+  retentionPolicy: 14d
