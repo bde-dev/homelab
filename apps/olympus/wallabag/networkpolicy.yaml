@@ -40,6 +40,17 @@ spec:
           rules:
             dns:
               - matchPattern: "*"
+
+    # Allows traffic out to the internet to fetch article metadata
+    - toEntities:
+        - world
+      toPorts:
+        - ports:
+            - port: "443"
+        - ports:
+            - port: "80"
+        - ports:
+            - port: "7844"
 ---
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy

@@ -40,7 +40,7 @@ spec:
           rules:
             dns:
               - matchPattern: "*"
-                #
+
     # Allows traffic out to the internet to fetch feed data
     - toEntities:
         - world

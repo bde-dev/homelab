@@ -41,7 +41,7 @@ spec:
             dns:
               - matchPattern: "*"
 
-    # Allows traffic out to the internet to fetch feed data
+    # Allows traffic out to the internet to fetch recipe metadata
     - toEntities:
         - world
       toPorts:
