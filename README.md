@@ -38,7 +38,7 @@ Here is a list of things I want to achieve:
 
 - [] Complete devpod integration
 - [x] Self-hosted storage
-- [] Deploy self-hosted apps
+- [x] Deploy self-hosted apps
 - [x] Azure secrets
 - [x] Expose apps to internet
 - [] Container registry
@@ -47,11 +47,19 @@ Here is a list of things I want to achieve:
 
 ### Milestones
 
+These milestones describe the items in the checklist.
+
 #### Complete Devpod Integration
 
 I want to be able to create `devpods` for my lab and apps.
 
 I will need to implement resource constraints so they do not impact the rest of the cluster.
+
+##### UPDATE
+
+There a two main bottlenecks for getting this online:
+1. Synology LUN limit of the DS118. I need to upgrade, probably to a DS224+.
+2. Devpod takes a very long time to pull the images because of ISP bandwidth and registry rate limiting. Solved by implementing my own pull-through cache.
 
 #### Self-Hosted Storage
 
@@ -62,6 +70,8 @@ Obtain a Synology NAS so my homelab can use persistent storage.
 #### Deploy Self-Hosted Apps
 
 Such as [commafeed](https://www.commafeed.com/#/welcome), [linkding](https://github.com/sissbruecker/linkding) and [wallabag](https://wallabag.org/).
+
+> COMPLETED
 
 #### Azure Secrets
 
@@ -83,6 +93,8 @@ This will also allow me to access my self-hosted apps over the internet.
 
 Self-hosting a container registry will allow me to create container images for my `dotnet` apps.
 
+It would also allow me to set up some pull-through caches to reduce devpod creation times.
+
 #### CNI
 
 I want to use `Cilium` for my `CNI`.
@@ -96,3 +108,9 @@ Research indicates it is a robust widely-used tool.
 Through a `LGTM/P + otel-collector` stack.
 
 I enjoyed wiring `Open Telemetry` into `dotnet` apps, and I would like to continue exploring the tech.
+
+They key challenge here is ensuring the collector and Prometheus play well together.
+
+Prometheus will need the `remote-receiver` (or equivelant flag) enabling for collectors to push metrics to it.
+
+An amount of relabelling will need to be done for the dashboards to work.
