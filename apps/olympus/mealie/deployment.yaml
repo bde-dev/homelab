@@ -39,6 +39,8 @@ spec:
                 name: mealie-configmap
             - secretRef:
                 name: mealie-app-secrets
+            - secretRef:
+                name: mealie-openai-secrets
 
           ports:
             - containerPort: 9000
