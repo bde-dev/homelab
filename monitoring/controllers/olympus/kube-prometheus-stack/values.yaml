@@ -8,9 +8,11 @@ grafana:
       label: grafana_dashboard
       labelValues: "1"
 
+  admin:
+    existingSecret: "grafana-admin-secrets"
+
 prometheus:
   prometheusSpec:
-
     # Discover all PodMonitors, Probes, PrometheusRules and ServiceMonitors
     podMonitorSelectorNilUsesHelmValues: false
     probeSelectorNilUsesHelmValues: false
