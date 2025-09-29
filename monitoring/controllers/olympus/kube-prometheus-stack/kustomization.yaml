@@ -6,6 +6,7 @@ resources:
   - repository.yaml
   - namespace.yaml
   - secrets.yaml
+  - cloudflare.yaml
 configMapGenerator:
   - name: kube-prometheus-stack-values
     files:
