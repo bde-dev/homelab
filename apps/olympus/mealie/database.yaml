@@ -1,7 +1,9 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: mealie-db-prod-cnpg-v2
+  name: mealie-db-prod-cnpg-v3
+  annotations:
+    cnpg.io/skipEmptyWalArchiveCheck: "enabled"
 spec:
   instances: 1
 
@@ -18,6 +20,7 @@ spec:
       isWALArchiver: true
       parameters:
         barmanObjectName: mealie-db-barman-store
+        serverName: mealie-db-prod-cnpg-v0
 
   externalClusters:
     - name: clusterBackup
@@ -25,7 +28,7 @@ spec:
         name: barman-cloud.cloudnative-pg.io
         parameters:
           barmanObjectName: mealie-db-barman-store
-          serverName: mealie-db-prod-cnpg-v1
+          serverName: mealie-db-prod-cnpg-v0
 
   bootstrap:
     recovery:

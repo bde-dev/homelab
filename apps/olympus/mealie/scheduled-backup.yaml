@@ -4,7 +4,7 @@ metadata:
   name: mealie-db-scheduled-backup
 spec:
   cluster:
-    name: mealie-db-prod-cnpg-v1
+    name: mealie-db-prod-cnpg-v3
   schedule: "0 0 0 * * *"
   backupOwnerReference: self
   method: plugin
