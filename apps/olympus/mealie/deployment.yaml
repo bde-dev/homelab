@@ -60,6 +60,5 @@ spec:
         - name: mealie-data
           persistentVolumeClaim:
             claimName: mealie-data-pvc
-            storageClass: synology-iscsi-retain
 
       restartPolicy: Always
