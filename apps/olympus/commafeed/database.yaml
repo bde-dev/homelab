@@ -2,6 +2,8 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: commafeed-db-prod-cnpg-v2
+  annotations:
+    cnpg.io/skipEmptyWalArchiveCheck: "enabled"
 spec:
   instances: 1
 
@@ -18,6 +20,7 @@ spec:
       isWALArchiver: true
       parameters:
         barmanObjectName: commafeed-db-barman-store
+        serverName: commafeed-db-prod-cnpg-v0
 
   externalClusters:
     - name: clusterBackup
@@ -25,7 +28,7 @@ spec:
         name: barman-cloud.cloudnative-pg.io
         parameters:
           barmanObjectName: commafeed-db-barman-store
-          serverName: commafeed-db-prod-cnpg-v1
+          serverName: commafeed-db-prod-cnpg-v0
 
   bootstrap:
     recovery:

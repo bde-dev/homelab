@@ -4,7 +4,7 @@ metadata:
   name: commafeed-db-scheduled-backup
 spec:
   cluster:
-    name: commafeed-db-prod-cnpg-v1
+    name: commafeed-db-prod-cnpg-v2
   schedule: "0 0 0 * * *"
   backupOwnerReference: self
   method: plugin
