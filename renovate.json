@@ -4,5 +4,34 @@
     "fileMatch": [
       "\\.yaml$"
     ]
-  }
+  },
+  "branchConcurrentLimit": 0,
+  "prConcurrentLimit": 0,
+  "prHourlyLimit": 0,
+  "packageRules": [
+    {
+      "matchPaths": [
+        "clusters/**"
+      ],
+      "addLabels": [
+        "flux"
+      ]
+    },
+    {
+      "matchPaths": [
+        "infrastructure/**"
+      ],
+      "addLabels": [
+        "infrastructure"
+      ]
+    },
+    {
+      "matchPaths": [
+        "apps/**"
+      ],
+      "addLabels": [
+        "apps"
+      ]
+    }
+  ]
 }
