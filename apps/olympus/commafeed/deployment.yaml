@@ -27,6 +27,12 @@ spec:
         runAsGroup: 3000
         fsGroup: 2000
 
+      resources:
+        requests:
+          memory: 150Mi
+        limits:
+          memory: 250Mi
+
       containers:
         - name: commafeed
           image: athou/commafeed:5.11.1-postgresql

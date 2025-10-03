@@ -27,6 +27,12 @@ spec:
         runAsGroup: 33
         fsGroup: 33
 
+      resources:
+        requests:
+          memory: 150Mi
+        limits:
+          memory: 250Mi
+
       containers:
         - name: linkding
           image: sissbruecker/linkding:1.39.1
