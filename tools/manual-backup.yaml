@@ -1,0 +1,20 @@
+# This file is used to run a manual backup of a cnpg database cluster.
+# 1. kubectl get --all-namespaces cluster to get the names of all running cluster
+# 2. change the below marked fields to match the cluster to back up.
+# 3. kubectl apply -f manual-backup.yaml to run the backup.
+
+apiVersion: postgresql.cnpg.io/v1
+kind: Backup
+metadata:
+  # Change the app name prefix e.g. mealie, linkding, commafeed etc.
+  name: mealie-db-manual-backup
+
+  # Change this field to match the cluster's namespace.
+  namespace: mealie
+spec:
+  cluster:
+    # Change this to the named of the cluster being backed up.
+    name: mealie-db-prod-cnpg-v3
+  method: plugin
+  pluginConfiguration:
+    name: barman-cloud.cloudnative-pg.io
