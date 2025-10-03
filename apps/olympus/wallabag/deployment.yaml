@@ -14,15 +14,15 @@ spec:
         app: wallabag
 
     spec:
-      resources:
-        requests:
-          memory: 150Mi
-        limits:
-          memory: 250Mi
-
       containers:
         - name: wallabag
           image: ghcr.io/wallabag/docker:2.6.9
+
+          resources:
+            requests:
+              memory: 150Mi
+            limits:
+              memory: 250Mi
 
           securityContext:
             allowPrivilegeEscalation: false
