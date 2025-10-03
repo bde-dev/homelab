@@ -1,4 +1,5 @@
 [tools]
+azure-cli = "latest"
 k9s = "latest"
 kubectl = "latest"
 lazygit = "latest"
