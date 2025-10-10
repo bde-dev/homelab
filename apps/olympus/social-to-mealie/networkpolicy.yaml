@@ -1,0 +1,163 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: mealie-app-policy
+  namespace: mealie
+spec:
+  endpointSelector:
+    matchLabels:
+      network-policy-type: app
+
+  ingress:
+    # Allow traffic from all pods in the same namespace
+    - fromEndpoints:
+        - {}
+
+    # Allow traffic from all pods in the 'monitoring' namespace
+    - fromEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: monitoring
+
+    # Allow traffic from all pods in the 'cnpg-system' namespace
+    - fromEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: cnpg-system
+
+  egress:
+    # Allow traffic to all pods in the same namespace
+    - toEndpoints:
+        - {}
+
+    # Allow traffic to 'kube-dns' in the 'kube-system' namespace over UDP port "53"
+    - toEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: kube-system
+            k8s-app: kube-dns
+      toPorts:
+        - ports:
+            - port: "53"
+              protocol: UDP
+          rules:
+            dns:
+              - matchPattern: "*"
+
+    # Allows traffic out to the internet to fetch recipe metadata
+    - toEntities:
+        - world
+      toPorts:
+        - ports:
+            - port: "443"
+        - ports:
+            - port: "80"
+        - ports:
+            - port: "7844"
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: mealie-cloudflared-policy
+  namespace: mealie
+spec:
+  endpointSelector:
+    matchLabels:
+      network-policy-type: cloudflared
+
+  ingress:
+    # Allow traffic from all pods in the same namespace
+    - fromEndpoints:
+        - {}
+
+    # Allow traffic from all pods in the 'monitoring' namespace
+    - fromEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: monitoring
+
+  egress:
+    # Allow traffic to all pods in the same namespace
+    - toEndpoints:
+        - {}
+
+    # Allow traffic to 'kube-dns' in the 'kube-system' namespace over UDP port "53"
+    - toEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: kube-system
+            k8s-app: kube-dns
+      toPorts:
+        - ports:
+            - port: "53"
+              protocol: UDP
+          rules:
+            dns:
+              - matchPattern: "*"
+
+    # Allows traffic out to the internet and Cloudflare Tunnel
+    - toEntities:
+        - world
+      toPorts:
+        - ports:
+            - port: "443"
+        - ports:
+            - port: "80"
+        - ports:
+            - port: "7844"
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: mealie-database-policy
+  namespace: mealie
+spec:
+  endpointSelector:
+    matchLabels:
+      network-policy-type: database
+
+  ingress:
+    # Allow traffic from all pods in the same namespace
+    - fromEndpoints:
+        - {}
+
+    # Allow traffic from all pods in the 'monitoring' namespace
+    - fromEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: monitoring
+
+    # Allow traffic from all pods in the 'cnpg-system' namespace
+    - fromEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: cnpg-system
+
+  egress:
+    # Allow traffic to all pods in the same namespace
+    - toEndpoints:
+        - {}
+
+    # Allow traffic to kube-apiserver
+    - toEntities:
+        - kube-apiserver
+      toPorts:
+        - ports:
+            - port: "6443"
+
+    # Allow traffic to 'kube-dns' in the 'kube-system' namespace over UDP port "53"
+    - toEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: kube-system
+            k8s-app: kube-dns
+      toPorts:
+        - ports:
+            - port: "53"
+              protocol: UDP
+          rules:
+            dns:
+              - matchPattern: "*"
+
+    # Allows traffic out to the internet - used for backups to Azure Blob
+    - toEntities:
+        - world
+      toPorts:
+        - ports:
+            - port: "443"
+        - ports:
+            - port: "80"
+        - ports:
+            - port: "7844"

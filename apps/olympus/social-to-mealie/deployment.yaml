@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: social-to-mealie
+spec:
+  replicas: 1
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+
+  selector:
+    matchLabels:
+      app: social-to-mealie
+
+  template:
+    metadata:
+      labels:
+        app: social-to-mealie
+
+    spec:
+      #       securityContext:
+      #         runAsUser: 1001
+      #         runAsGroup: 1001
+      #         fsGroup: 1001
+
+      resources:
+        requests:
+          memory: 150Mi
+        limits:
+          memory: 250Mi
+
+      containers:
+        - name: social-to-mealie
+          image: ghcr.io/gerardpollorebozado/social-to-mealie:v0.10.4
+
+          #          securityContext:
+          #            allowPrivilegeEscalation: false
+
+          envFrom:
+            - configMapRef:
+                name: social-to-mealie-configmap
+            - secretRef:
+                name: social-to-mealie-app-secrets
+            - secretRef:
+                name: mealie-openai-secrets
+
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+
+      restartPolicy: Always
