@@ -1,5 +1,7 @@
 [tools]
 azure-cli = "latest"
+cilium-cli = "latest"
+cilium-hubble = "latest"
 k9s = "latest"
 kubectl = "latest"
 lazygit = "latest"
