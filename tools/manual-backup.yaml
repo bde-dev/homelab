@@ -6,15 +6,15 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Backup
 metadata:
-  # Change the app name prefix e.g. mealie, linkding, commafeed etc.
-  name: mealie-db-manual-backup
+  # Change the app name prefix.
+  name: commafeed-db-manual-backup
 
   # Change this field to match the cluster's namespace.
-  namespace: mealie
+  namespace: commafeed
 spec:
   cluster:
     # Change this to the named of the cluster being backed up.
-    name: mealie-db-prod-cnpg-v3
+    name: commafeed-db-prod-cnpg-v2
   method: plugin
   pluginConfiguration:
     name: barman-cloud.cloudnative-pg.io
