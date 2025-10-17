@@ -2,6 +2,7 @@
 azure-cli = "latest"
 cilium-cli = "latest"
 cilium-hubble = "latest"
+flux2 = "latest"
 k9s = "latest"
 kubectl = "latest"
 lazygit = "latest"
