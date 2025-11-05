@@ -5,6 +5,11 @@
       "\\.yaml$"
     ]
   },
+  "flux": {
+    "fileMatch": [
+      "\\.yaml$"
+    ]
+  },
   "branchConcurrentLimit": 0,
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
