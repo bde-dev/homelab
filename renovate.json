@@ -37,6 +37,13 @@
       "addLabels": [
         "apps"
       ]
+    },
+    {
+      "description": "Disable Renovate under flux-system",
+      "matchPaths": [
+        "clusters/olympus/flux-system/**"
+      ],
+      "enabled": false
     }
   ]
 }
