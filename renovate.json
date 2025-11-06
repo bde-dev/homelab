@@ -32,6 +32,14 @@
     },
     {
       "matchPaths": [
+        "monitoring/**"
+      ],
+      "addLabels": [
+        "monitoring"
+      ]
+    },
+    {
+      "matchPaths": [
         "apps/**"
       ],
       "addLabels": [
