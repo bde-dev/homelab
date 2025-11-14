@@ -10,8 +10,8 @@ spec:
       name: cluster-issuer-account-key
     solvers:
       - dns01:
-        cloudflare:
-          email: brad.evans0925@gmail.com
-          apiTokenSecretRef:
-            name: cloudflare-dns-api-token
-            key: cloudflare-dns-api-token
+          cloudflare:
+            email: brad.evans0925@gmail.com
+            apiTokenSecretRef:
+              name: cloudflare-dns-api-token
+              key: cloudflare-dns-api-token
