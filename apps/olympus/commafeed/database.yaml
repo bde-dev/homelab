@@ -35,7 +35,7 @@ spec:
       source: clusterBackup
 
   storage:
-    size: 2Gi
+    size: 5Gi
 
   managed:
     services:
