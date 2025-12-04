@@ -1,6 +1,10 @@
 [tools]
-cilium-cli = "latest"
-cilium-hubble = "latest"
-flux2 = "latest"
-k9s = "latest"
-kubectl = "latest"
+cilium-cli = "0.18.8"
+cilium-hubble = "1.18.3"
+flux2 = "2.7.3"
+k9s = "0.50.16"
+kubectl = "1.34.1"
+kubelogin = "1.35.0"
+
+[settings]
+pin = true
