@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# This script takes a kubernetes cluster via $KUBECONFIG and installs my homelab into it with FluxCD.
+
+if [[ -z $CLIENT_ID ]] || [[ -z $CLIENT_SECRET ]] || [[ -z $CLIENT_ID ]] || [[ -z $KUBECONFIG ]] || [[ -z $CLUSTER_NAME ]]; then
+  echo "Error: CLIENT_ID, CLIENT_SECRET, KUBECONFIG, CLUSTER_NAME env vars must be set. Exiting."
+  exit 1
+fi
+
+kubectl config get-current
+
+read -p "All env vars are set - press enter to proceed with bootstrapping to the above context or ctrl + C to exit."
+
+kubectl create namespace external-secrets
+
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+Kind: Secret
+metadata:
+  name: azure-creds
+  namespace: external-secrets
+type: Opaque
+stringData:
+  ClientID: $CLIENT_ID}
+  ClientSecret: $CLIENT_SECRET}
+EOF
+
+flux bootstrap github \
+  --owner=bde-dev \
+  --repository=homelab \
+  --branch=main \
+  --path=./clusters/$CLUSTER_NAME \
+  --personal
