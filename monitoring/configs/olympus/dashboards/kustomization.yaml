@@ -5,6 +5,7 @@ configMapGenerator:
   - name: infrastructure-dashboards
     files:
       - ./infrastructure/cloudnative-pg/grafana-dashboard.json
+      - ./infrastructure/harbor/grafana-dashboard.json
     options:
       labels:
         grafana-dashboard: "1"
