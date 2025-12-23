@@ -4,7 +4,8 @@ namespace: monitoring
 configMapGenerator:
   - name: infrastructure-dashboards
     files:
-      - ./infrastructure/cloudnative-pg/grafana-dashboard.json
+      - ./infrastructure/cloudnative-pg/cloudnative-pg-dashboard.json
+      - ./infrastructure/harbor/harbor-dashboard.json
     options:
       labels:
         grafana-dashboard: "1"
