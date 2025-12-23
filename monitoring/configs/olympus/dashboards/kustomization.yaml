@@ -8,4 +8,4 @@ configMapGenerator:
       - ./infrastructure/harbor/harbor-dashboard.json
     options:
       labels:
-        grafana-dashboard: "1"
+        grafana_dashboard: "1"
