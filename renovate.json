@@ -47,6 +47,14 @@
       ]
     },
     {
+      "matchPaths": [
+        "mise.yoml"
+      ],
+      "addLabels": [
+        "mise"
+      ]
+    },
+    {
       "description": "Disable Renovate under flux-system",
       "matchPaths": [
         "clusters/olympus/flux-system/**"
