@@ -27,6 +27,9 @@ spec:
         runAsGroup: 911
         fsGroup: 911
 
+      imagePullSecrets:
+        - name: harbor-registry-creds
+
       containers:
         - name: mealie
           image: ghcr.io/mealie-recipes/mealie:v3.8.0
