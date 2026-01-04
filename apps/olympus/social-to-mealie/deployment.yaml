@@ -26,6 +26,9 @@ spec:
       #         runAsGroup: 1001
       #         fsGroup: 1001
 
+      imagePullSecrets:
+        - name: harbor-registry-creds
+
       resources:
         requests:
           memory: 150Mi

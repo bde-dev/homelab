@@ -27,6 +27,9 @@ spec:
         runAsGroup: 33
         fsGroup: 33
 
+      imagePullSecrets:
+        - name: harbor-registry-creds
+
       containers:
         - name: linkding
           image: sissbruecker/linkding:1.44.2

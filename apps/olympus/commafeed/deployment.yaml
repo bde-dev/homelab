@@ -27,6 +27,9 @@ spec:
         runAsGroup: 3000
         fsGroup: 2000
 
+      imagePullSecrets:
+        - name: harbor-registry-creds
+
       containers:
         - name: commafeed
           image: athou/commafeed:5.12.1-postgresql

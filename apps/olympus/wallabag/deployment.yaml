@@ -21,6 +21,9 @@ spec:
         app: wallabag
 
     spec:
+      imagePullSecrets:
+        - name: harbor-registry-creds
+
       containers:
         - name: wallabag
           image: ghcr.io/wallabag/docker:2.6.14
