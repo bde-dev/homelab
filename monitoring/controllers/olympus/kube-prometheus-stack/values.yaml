@@ -1,5 +1,5 @@
 global:
-  imageRegistry: "https://harbor.bde-dev.net"
+  imageRegistry: "harbor.bde-dev.net"
   imagePullSecrets:
     - name: harbor-registry-creds
 
