@@ -48,7 +48,7 @@
     },
     {
       "matchPaths": [
-        "mise.yoml"
+        "mise.toml"
       ],
       "addLabels": [
         "mise"
