@@ -14,8 +14,10 @@ spec:
         app: stm-cloudflared
         network-policy-type: cloudflared
     spec:
+      imagePullSecrets:
+        - name: harbor-registry-creds
       containers:
-        - image: cloudflare/cloudflared:latest
+        - image: docker.io/cloudflare/cloudflared:latest
           name: stm-cloudflared
           env:
             - name: TUNNEL_TOKEN
