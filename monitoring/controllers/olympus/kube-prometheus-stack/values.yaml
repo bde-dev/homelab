@@ -16,6 +16,14 @@ grafana:
   admin:
     existingSecret: "grafana-admin-secrets"
 
+prometheusOperator:
+  admissionWebhooks:
+    patch:
+      image:
+        registry: harbor.bde-dev.net/ghcr-proxy
+        repository: jkroepke/helm-charts/kube-webhook-certgen
+        tag: v1.7.3
+
 prometheus:
   prometheusSpec:
     # Discover all PodMonitors, Probes, PrometheusRules and ServiceMonitors
