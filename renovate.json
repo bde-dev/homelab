@@ -60,6 +60,14 @@
         "clusters/olympus/flux-system/**"
       ],
       "enabled": false
+    },
+    {
+      "matchPackageNames": [
+        "cloudflare/cloudflared"
+      ],
+      "addLabels": [
+        "infrastructure"
+      ]
     }
   ]
 }
