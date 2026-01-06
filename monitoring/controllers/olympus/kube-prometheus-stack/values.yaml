@@ -20,8 +20,7 @@ prometheusOperator:
   admissionWebhooks:
     patch:
       image:
-        registry: harbor.bde-dev.net/ghcr-proxy
-        repository: jkroepke/helm-charts/kube-webhook-certgen
+        repository: ghcr-proxy/jkroepke/helm-charts/kube-webhook-certgen
         tag: v1.7.3
 
 prometheus:
