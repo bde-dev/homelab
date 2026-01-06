@@ -7,7 +7,11 @@ alertmanager:
   enabled: false
 
 grafana:
+  image:
+    repository: dockerhub-proxy/grafana/grafana
   sidecar:
+    image:
+      repository: quay-proxy/kiwigrid/k8s-sidecar
     dashboards:
       enabled: true
       label: grafana_dashboard
@@ -16,7 +20,20 @@ grafana:
   admin:
     existingSecret: "grafana-admin-secrets"
 
+kube-state-metrics:
+  image:
+    repository: k8s-proxy/kube-state-metrics/kube-state-metrics
+
+prometheus-node-exporter:
+  image:
+    repository: quay-proxy/prometheus/node-exporter
+
 prometheusOperator:
+  image:
+    repository: quay-proxy/prometheus-operator/prometheus-operator
+  prometheusConfigReloader:
+    image:
+      repository: quay-proxy/prometheus-operator/prometheus-config-reloader
   admissionWebhooks:
     patch:
       image:
@@ -25,6 +42,8 @@ prometheusOperator:
 
 prometheus:
   prometheusSpec:
+    image:
+      repository: quay-proxy/prometheus/prometheus
     # Discover all PodMonitors, Probes, PrometheusRules and ServiceMonitors
     podMonitorSelectorNilUsesHelmValues: false
     probeSelectorNilUsesHelmValues: false
