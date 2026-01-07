@@ -67,7 +67,8 @@
       ],
       "addLabels": [
         "infrastructure"
-      ]
+      ],
+      "groupName": "cloudflared"
     }
   ]
 }
