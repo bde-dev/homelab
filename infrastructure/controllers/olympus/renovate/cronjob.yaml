@@ -13,9 +13,6 @@ spec:
           containers:
             - name: renovate
               image: renovate/renovate:42.71.4
-              args:
-                - bde-dev/homelab
-
               envFrom:
                 - secretRef:
                     name: renovate-github-pat-token
