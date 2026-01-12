@@ -4,5 +4,6 @@ metadata:
   name: social-to-mealie-configmap
 data:
   OPENAI_URL: https://api.openai.com/v1
-  WHISPER_MODEL: whisper-1
+  TRANSCRIPTION_MODEL: whisper-1
+  TEXT_MODEL: gpt-4o-mini
   MEALIE_URL: https://mealie.bde-dev.net
