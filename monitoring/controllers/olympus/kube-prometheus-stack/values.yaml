@@ -12,6 +12,8 @@ grafana:
   sidecar:
     image:
       repository: quay-proxy/kiwigrid/k8s-sidecar
+    datasources:
+      restartPolicy: Always
     dashboards:
       enabled: true
       label: grafana_dashboard
