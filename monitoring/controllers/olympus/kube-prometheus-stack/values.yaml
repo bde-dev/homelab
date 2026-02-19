@@ -40,7 +40,6 @@ prometheusOperator:
     patch:
       image:
         repository: ghcr-proxy/jkroepke/kube-webhook-certgen
-        tag: 1.7.3
 
 prometheus:
   prometheusSpec:
