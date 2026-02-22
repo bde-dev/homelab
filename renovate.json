@@ -71,13 +71,12 @@
       "groupName": "cloudflared"
     },
     {
-      "description": "Link commafeed Docker image to its GitHub source for release notes. Tag variant suffix (e.g. -postgresql) is stripped so versions correlate to GitHub releases.",
+      "description": "Link commafeed Docker image to its GitHub source for release notes.",
       "matchPackageNames": [
         "athou/commafeed"
       ],
       "sourceUrl": "https://github.com/athou/commafeed",
-      "changelogUrl": "https://github.com/athou/commafeed",
-      "extractVersion": "^(?<version>[0-9]+\\.[0-9]+\\.[0-9]+)"
+      "changelogUrl": "https://github.com/athou/commafeed"
     }
   ]
 }
