@@ -71,12 +71,12 @@
       "groupName": "cloudflared"
     },
     {
-      "description": "Link commafeed Docker image to GitHub source. extractVersion strips -postgresql suffix to match GitHub release tags.",
+      "description": "Link commafeed Docker image to GitHub source. versioning regex filters to -postgresql tags only and strips suffix for GitHub release tag matching.",
       "matchPackageNames": [
         "athou/commafeed"
       ],
       "sourceUrl": "https://github.com/Athou/commafeed",
-      "extractVersion": "^(?<version>\\d+\\.\\d+\\.\\d+)"
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-postgresql$"
     },
     {
       "description": "Link Synology CSI driver to GitHub source for release notes.",
