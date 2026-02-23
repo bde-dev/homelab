@@ -71,12 +71,47 @@
       "groupName": "cloudflared"
     },
     {
-      "description": "Link commafeed Docker image to its GitHub source for release notes.",
+      "description": "Link commafeed Docker image to GitHub source. extractVersion strips -postgresql suffix to match GitHub release tags.",
       "matchPackageNames": [
         "athou/commafeed"
       ],
-      "sourceUrl": "https://github.com/athou/commafeed",
-      "changelogUrl": "https://github.com/athou/commafeed"
+      "sourceUrl": "https://github.com/Athou/commafeed",
+      "extractVersion": "^(?<version>\\d+\\.\\d+\\.\\d+)"
+    },
+    {
+      "description": "Link Synology CSI driver to GitHub source for release notes.",
+      "matchPackageNames": [
+        "synology/synology-csi"
+      ],
+      "sourceUrl": "https://github.com/SynologyOpenSource/synology-csi"
+    },
+    {
+      "description": "Link CSI provisioner sidecar to GitHub source for release notes.",
+      "matchPackageNames": [
+        "registry.k8s.io/sig-storage/csi-provisioner"
+      ],
+      "sourceUrl": "https://github.com/kubernetes-csi/external-provisioner"
+    },
+    {
+      "description": "Link CSI attacher sidecar to GitHub source for release notes.",
+      "matchPackageNames": [
+        "registry.k8s.io/sig-storage/csi-attacher"
+      ],
+      "sourceUrl": "https://github.com/kubernetes-csi/external-attacher"
+    },
+    {
+      "description": "Link CSI resizer sidecar to GitHub source for release notes.",
+      "matchPackageNames": [
+        "registry.k8s.io/sig-storage/csi-resizer"
+      ],
+      "sourceUrl": "https://github.com/kubernetes-csi/external-resizer"
+    },
+    {
+      "description": "Link CSI node-driver-registrar sidecar to GitHub source for release notes.",
+      "matchPackageNames": [
+        "registry.k8s.io/sig-storage/csi-node-driver-registrar"
+      ],
+      "sourceUrl": "https://github.com/kubernetes-csi/node-driver-registrar"
     }
   ]
 }
