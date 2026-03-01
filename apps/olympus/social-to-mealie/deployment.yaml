@@ -37,7 +37,7 @@ spec:
 
       containers:
         - name: social-to-mealie
-          image: ghcr.io/gerardpollorebozado/social-to-mealie:v1.4.0
+          image: ghcr.io/gerardpollorebozado/social-to-mealie:v1.5.0
 
           #          securityContext:
           #            allowPrivilegeEscalation: false
