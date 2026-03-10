@@ -12,7 +12,7 @@ spec:
         spec:
           containers:
             - name: renovate
-              image: renovate/renovate:43.60.5
+              image: renovate/renovate:43.60.6
               envFrom:
                 - secretRef:
                     name: renovate-github-pat-token
