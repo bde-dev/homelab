@@ -2,8 +2,6 @@
 ipam:
   mode: kubernetes
 
-
-
 # ~~~~~ L2 Announcements configuration ~~~~~~~~~~
 
 # Ensures kube-proxy pod does not run
@@ -20,7 +18,6 @@ cgroup:
     enabled: false
   hostRoot: /sys/fs/cgroup
 
-
 # API chatter is increased when Cilium runs under L2 Announcements mode
 # Limiting the API rate limit avoids introducing throttling
 k8sClientRateLimit:
@@ -31,9 +28,8 @@ k8sClientRateLimit:
 # If a node goes down, Cilium elects another ndoe to host that VIP
 # Nodes "announce" to the LAN:
 # "If you want to reach IP <loadbalancerIP>, then come to my MAC!"
-l2Announcements:
+l2announcements:
   enabled: true
-
 
 # Extras
 ingressController:
@@ -46,4 +42,3 @@ hubble:
     enabled: true
   ui:
     enabled: true
-
