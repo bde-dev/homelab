@@ -86,9 +86,6 @@ spec:
         - ports:
             - port: "53"
               protocol: UDP
-          rules:
-            dns:
-              - matchPattern: "*"
 
     # Allows traffic out to the internet and Cloudflare Tunnel
     - toEntities:

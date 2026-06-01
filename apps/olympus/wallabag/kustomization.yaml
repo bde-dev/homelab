@@ -9,5 +9,6 @@ resources:
   - database.yaml
   - configmap.yaml
   - cloudflare.yaml
+  - networkpolicy.yaml
   - barman-object-store.yaml
   - scheduled-backup.yaml
