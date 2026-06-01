@@ -2,7 +2,7 @@
 cilium-cli = "0.18.8"
 cilium-hubble = "1.18.3"
 flux2 = "2.7.5"
-k9s = "0.50.16"
+k9s = "0.50.18"
 kubectl = "1.35.4"
 kubelogin = "1.35.0"
 
