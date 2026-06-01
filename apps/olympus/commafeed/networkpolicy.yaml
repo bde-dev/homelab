@@ -37,9 +37,6 @@ spec:
         - ports:
             - port: "53"
               protocol: UDP
-          rules:
-            dns:
-              - matchPattern: "*"
 
     # Allows traffic out to the internet to fetch feed data
     - toEntities:
@@ -144,9 +141,6 @@ spec:
         - ports:
             - port: "53"
               protocol: UDP
-          rules:
-            dns:
-              - matchPattern: "*"
 
     # Allows traffic out to the internet - used for backups to Azure Blob
     - toEntities:
