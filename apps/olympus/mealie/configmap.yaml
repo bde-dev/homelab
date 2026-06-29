@@ -13,3 +13,4 @@ data:
   POSTGRES_DB: mealie
   LOG_LEVEL: debug
   OPENAI_ENABLE_IMAGE_SERVICES: "false"
+  TOKEN_TIME: "2160"
