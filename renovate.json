@@ -22,6 +22,18 @@
       ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "cert-manager/cert-manager"
+    },
+    {
+      "customType": "regex",
+      "description": "Track the external-secrets CRD bundle that is split out of the Helm chart",
+      "fileMatch": [
+        "infrastructure/controllers/olympus/external-secrets/kustomization\\.yaml$"
+      ],
+      "matchStrings": [
+        "external-secrets/(?<currentValue>v[0-9.]+)/deploy/crds/bundle\\.yaml"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "external-secrets/external-secrets"
     }
   ],
   "branchConcurrentLimit": 0,
@@ -91,6 +103,14 @@
         "cert-manager/cert-manager"
       ],
       "groupName": "cert-manager"
+    },
+    {
+      "description": "Keep the external-secrets Helm chart and the split-out CRD bundle in lockstep, in a single PR.",
+      "matchPackageNames": [
+        "external-secrets",
+        "external-secrets/external-secrets"
+      ],
+      "groupName": "external-secrets"
     },
     {
       "description": "Link commafeed to GitHub. versioning regex filters to -postgresql tags only. changelogUrl links to CHANGELOG.md since tag suffix prevents automatic release note embedding.",

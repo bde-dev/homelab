@@ -1,7 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+  # CRDs are staged in-band as raw manifests (Flux applies CRDs first) so ExternalSecret /
+  # ClusterSecretStore resources in this and later layers validate. The chart does not manage
+  # them (release.yaml installCRDs:false). Version is tracked by a Renovate customManager,
+  # grouped with the chart so the two move together.
+  - https://raw.githubusercontent.com/external-secrets/external-secrets/v0.18.2/deploy/crds/bundle.yaml
   - repositories.yaml
   - release.yaml
-  - deployment-crds.yaml
   - namespace.yaml
