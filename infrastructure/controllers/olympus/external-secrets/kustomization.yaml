@@ -5,7 +5,7 @@ resources:
   # ClusterSecretStore resources in this and later layers validate. The chart does not manage
   # them (release.yaml installCRDs:false). Version is tracked by a Renovate customManager,
   # grouped with the chart so the two move together.
-  - https://raw.githubusercontent.com/external-secrets/external-secrets/v0.18.2/deploy/crds/bundle.yaml
+  - https://raw.githubusercontent.com/external-secrets/external-secrets/v2.8.0/deploy/crds/bundle.yaml
   - repositories.yaml
   - release.yaml
   - namespace.yaml
