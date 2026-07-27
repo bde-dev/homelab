@@ -10,6 +10,20 @@
       "\\.yaml$"
     ]
   },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Track the cert-manager CRD manifest that is split out of the Helm chart",
+      "fileMatch": [
+        "infrastructure/controllers/olympus/cert-manager/kustomization\\.yaml$"
+      ],
+      "matchStrings": [
+        "download/(?<currentValue>v[0-9.]+)/cert-manager\\.crds\\.yaml"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "cert-manager/cert-manager"
+    }
+  ],
   "branchConcurrentLimit": 0,
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
@@ -69,6 +83,14 @@
         "infrastructure"
       ],
       "groupName": "cloudflared"
+    },
+    {
+      "description": "Keep the cert-manager Helm chart and the split-out CRD manifest in lockstep, in a single PR.",
+      "matchPackageNames": [
+        "cert-manager",
+        "cert-manager/cert-manager"
+      ],
+      "groupName": "cert-manager"
     },
     {
       "description": "Link commafeed to GitHub. versioning regex filters to -postgresql tags only. changelogUrl links to CHANGELOG.md since tag suffix prevents automatic release note embedding.",

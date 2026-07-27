@@ -15,4 +15,6 @@ spec:
         namespace: cert-manager
       interval: 12h
   values:
-    installCRDs: true
+    # CRDs are applied as raw manifests in kustomization.yaml (Flux stages CRDs first),
+    # so the chart must not manage them.
+    installCRDs: false
