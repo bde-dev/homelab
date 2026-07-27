@@ -5,7 +5,7 @@ resources:
   # so Flux's CRD-first apply staging registers them before any Certificate/ClusterIssuer in
   # this layer is validated. Version is tracked by a Renovate customManager, grouped with the
   # chart so the two move together.
-  - https://github.com/cert-manager/cert-manager/releases/download/v1.19.4/cert-manager.crds.yaml
+  - https://github.com/cert-manager/cert-manager/releases/download/v1.21.0/cert-manager.crds.yaml
   - repository.yaml
   - release.yaml
   - namespace.yaml
