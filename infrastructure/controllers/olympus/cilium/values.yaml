@@ -31,6 +31,11 @@ k8sClientRateLimit:
 l2announcements:
   enabled: true
 
+# Single control-plane node: the operator's second replica can never schedule
+# (hostPort collision on one node), so pin it to 1.
+operator:
+  replicas: 1
+
 # Extras
 ingressController:
   enabled: true
